@@ -452,4 +452,4 @@ object EngineHolder {
         runCatching { Shizuku.bindUserService(a, conn) }
     }
     fun unbind() {
-        args?.let { runCatching { Shizuku.unbindUserService }
+        args?.let { runCatching { Shizuku.bindUserService(a, conn) }
