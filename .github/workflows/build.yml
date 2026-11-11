@@ -8,8 +8,12 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: '17' }
       - uses: android-actions/setup-android@v4
+      - name: Install SDK pieces
+        run: |
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
       - uses: gradle/actions/setup-gradle@v4
         with: { gradle-version: '8.7' }
-      - run: gradle assembleRelease --no-daemon
+      - run: gradle assembleRelease --no-daemon --stacktrace
       - uses: actions/upload-artifact@v4
         with: { name: apk, path: app/build/outputs/apk/release/*.apk }
