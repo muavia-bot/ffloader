@@ -3,6 +3,7 @@ package com.venice.ffloader
 import android.Manifest
 import android.app.*
 import android.content.*
+import android.content.pm.ActivityInfo
 import android.content.pm.ServiceInfo
 import android.graphics.*
 import android.net.Uri
